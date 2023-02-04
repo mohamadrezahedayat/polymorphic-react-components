@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useRef } from "react";
+
+import { Text } from "./components";
+import { Emphasize } from "./emphesize";
 
 function App() {
+  const ref = useRef<HTMLAnchorElement>(null);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Text as="h1">h1 tag </Text>
+
+      <Text as={Emphasize}>a custom element </Text>
+
+      <Text
+        as="h3"
+        color="red"
+        style={{ backgroundColor: "black" }}
+      >
+        h3 tag
+      </Text>
+      <Text as="a" href="https://google.com" ref={ref}>
+        anchor tag
+      </Text>
+      <Text
+        as="button"
+        color="red"
+        style={{ backgroundColor: "blue", padding: "20px" }}
+      >
+        test
+      </Text>
     </div>
   );
 }
